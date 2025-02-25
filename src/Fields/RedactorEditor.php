@@ -19,7 +19,7 @@ class RedactorEditor extends Field
             : $this->evaluate($this->plugins);
 
         return collect($plugins)
-            ->map(function (string | DefaultRedactorPlugin $plugin) {
+            ->map(function (string|DefaultRedactorPlugin $plugin) {
                 return $plugin instanceof DefaultRedactorPlugin
                     ? $plugin->value
                     : $plugin;
