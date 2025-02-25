@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace TimoDeWinter\FilamentRedactorField\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class FilamentRedactorFieldCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'filament-redactor-field';
 
     public $description = 'My command';
 
