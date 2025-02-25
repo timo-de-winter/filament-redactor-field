@@ -4,7 +4,6 @@ namespace TimoDeWinter\FilamentRedactorField;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use TimoDeWinter\FilamentRedactorField\Commands\FilamentRedactorFieldCommand;
 
 class FilamentRedactorFieldServiceProvider extends PackageServiceProvider
 {
@@ -18,8 +17,6 @@ class FilamentRedactorFieldServiceProvider extends PackageServiceProvider
         $package
             ->name('filament-redactor-field')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_filament_redactor_field_table')
-            ->hasCommand(FilamentRedactorFieldCommand::class);
+            ->hasViews();
     }
 }
