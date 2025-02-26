@@ -5,26 +5,21 @@
     <div x-data="{ state: $wire.{{ $applyStateBindingModifiers("\$entangle('{$getStatePath()}')") }} }" wire:ignore>
         <textarea
             wire:model.live="{{ $getStatePath() }}"
-            x-init="() => {
-                Redactor($el, {
-                    subscribe: {
-                        'editor.change': html => {
-                            state = html.data.html;
-                        },
-                        plugins: @js($getPlugins()),
-                        theme: 'light',
+            aria-label="{{ $field->getName() }}"
+            x-data="redactorEditor({
+                updateUsing: (newState) => {
+                    state = newState;
+                },
+                withDarkMode: @js($getWithDarkMode),
+                plugins: @js($getPlugins()),
+                @if(!is_null($maxLength = $getMaxLength()))
+                    limiter: {
+                        limit: @js($maxLength)
                     }
-                });
-            }"
+                @else
+                    limiter: false,
+                @endif
+            })"
         ></textarea>
     </div>
 </x-dynamic-component>
-
-@assets
-<link rel="stylesheet" href="{{ asset(config('filament-redactor-field.redactor_path') . '/redactor.min.css') }}" />
-<script src="{{ asset(config('filament-redactor-field.redactor_path') . '/redactor.usm.min.js') }}" type="module"></script>
-
-@foreach($getPlugins() as $plugin)
-    <script src="{{ asset(config('filament-redactor-field.redactor_path') . '/plugins/' . $plugin . '/' . $plugin . '.js') }}"></script>
-@endforeach
-@endassets

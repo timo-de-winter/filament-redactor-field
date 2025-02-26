@@ -12,11 +12,13 @@ class RedactorEditor extends Field
 
     protected null|array|Closure $plugins = null;
 
+    protected null|bool|Closure $withDarkMode = null;
+
+    protected int | Closure | null $maxLength = null;
+
     public function getPlugins(): array
     {
-        $plugins = is_null($this->plugins)
-            ? config('filament-redactor-field.plugins')
-            : $this->evaluate($this->plugins);
+        $plugins = $this->evaluate($this->plugins) ?? config('filament-redactor-field.plugins');
 
         return collect($plugins)
             ->map(function (string|DefaultRedactorPlugin $plugin) {
@@ -32,5 +34,29 @@ class RedactorEditor extends Field
         $this->plugins = $plugins;
 
         return $this;
+    }
+
+    public function getWithDarkMode(): bool
+    {
+        return $this->evaluate($this->withDarkMode) ?? config('filament-redactor-field.darkmode_enabled');
+    }
+
+    public function withDarkMode(null|Closure|bool $enabled = true): static
+    {
+        $this->withDarkMode = $enabled;
+
+        return $this;
+    }
+
+    public function maxLength(int | Closure | null $length): static
+    {
+        $this->maxLength = $length;
+
+        return $this;
+    }
+
+    public function getMaxLength(): ?int
+    {
+        return $this->evaluate($this->maxLength);
     }
 }
