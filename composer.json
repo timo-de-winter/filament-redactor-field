@@ -1,9 +1,9 @@
 {
     "name": "timo-de-winter/filament-redactor-field",
     "description": "A Filament field for the redactor WYSIWYG editor.",
-    "version": "v1.0.0",
+    "version": "v1.0.1",
     "keywords": [
-        "TimoDeWinter",
+        "timo-de-winter",
         "laravel",
         "filament-redactor-field"
     ],
@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "php": "^8.4",
+        "php": "^8.3",
         "filament/filament": "^3.3",
         "illuminate/contracts": "^10.0||^11.0",
         "spatie/laravel-package-tools": "^1.16"
