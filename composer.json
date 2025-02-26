@@ -1,7 +1,7 @@
 {
     "name": "timo-de-winter/filament-redactor-field",
     "description": "A Filament field for the redactor WYSIWYG editor.",
-    "version": "v1.0.1",
+    "version": "v1.0.2",
     "keywords": [
         "timo-de-winter",
         "laravel",
@@ -19,13 +19,13 @@
     "require": {
         "php": "^8.3",
         "filament/filament": "^3.3",
-        "illuminate/contracts": "^10.0||^11.0",
+        "illuminate/contracts": "^12.0||^11.0",
         "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
         "laravel/pint": "^1.14",
         "nunomaduro/collision": "^8.1.1||^7.10.0",
-        "orchestra/testbench": "^9.0.0||^8.22.0",
+        "orchestra/testbench": "^10.0.0||^9.0.0",
         "pestphp/pest": "^3.0",
         "pestphp/pest-plugin-arch": "^3.0",
         "pestphp/pest-plugin-laravel": "^3.0"
