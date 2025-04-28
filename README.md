@@ -13,17 +13,10 @@ A Filament field for the redactor WYSIWYG editor.
 composer require timo-de-winter/filament-redactor-field
 
 # Publish the assets
-php artisan vendor:publish --tag="filament-redactor-field-assets"
+php artisan filament:assets
 ```
 
 Since Redactor is a paid package it is not shipped with this package. You should include Redactor yourself. This package assumes that `window.Redactor` is available. All plugins you want to use should be included as well.
-
-After publishing the assets, you should still include them:
-```php
-FilamentAsset::register([
-    Js::make('redactor-plugin', asset('vendor/filament-redactor-field/filament-redactor-field.js')),
-]);
-```
 
 You can publish the config file with:
 ```bash

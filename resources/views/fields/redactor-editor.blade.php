@@ -2,7 +2,11 @@
     :component="$getFieldWrapperView()"
     :field="$field"
 >
-    <div x-data="{ state: $wire.{{ $applyStateBindingModifiers("\$entangle('{$getStatePath()}')") }} }" wire:ignore>
+    <div
+        x-data="{ state: $wire.{{ $applyStateBindingModifiers("\$entangle('{$getStatePath()}')") }} }"
+        x-load-js="[@js(\Filament\Support\Facades\FilamentAsset::getScriptSrc('redactor-plugin', package: 'timo-de-winter/filament-redactor-field'))]"
+        wire:ignore
+    >
         <textarea
             wire:model.live="{{ $getStatePath() }}"
             aria-label="{{ $field->getName() }}"
