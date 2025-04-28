@@ -14,7 +14,7 @@ class RedactorEditor extends Field
 
     protected null|bool|Closure $withDarkMode = null;
 
-    protected int | Closure | null $maxLength = null;
+    protected int|Closure|null $maxLength = null;
 
     public function getPlugins(): array
     {
@@ -48,7 +48,7 @@ class RedactorEditor extends Field
         return $this;
     }
 
-    public function maxLength(int | Closure | null $length): static
+    public function maxLength(int|Closure|null $length): static
     {
         $this->maxLength = $length;
 

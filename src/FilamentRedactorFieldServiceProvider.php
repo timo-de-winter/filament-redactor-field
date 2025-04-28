@@ -27,7 +27,7 @@ class FilamentRedactorFieldServiceProvider extends PackageServiceProvider
     public function packageBooted(): void
     {
         FilamentAsset::register([
-            Js::make('redactor-plugin', __DIR__ . '/../resources/dist/filament-redactor-field.js'),
+            Js::make('redactor-plugin', __DIR__.'/../resources/dist/filament-redactor-field.js'),
         ], package: 'timo-de-winter/filament-redactor-field');
     }
 }
