@@ -21,7 +21,8 @@ class ClassWatcher {
 }
 
 document.addEventListener('alpine:init', () => {
-    Alpine.data('redactorEditor', params => ({
+    Alpine.data('redactorEditor', (state, params) => ({
+        state: state,
         params: params,
         instance: null,
         classWatcher: null,
@@ -43,6 +44,10 @@ document.addEventListener('alpine:init', () => {
                 plugins: this.params.plugins ?? [],
                 theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light',
                 limiter: this.params.limiter,
+            });
+
+            this.$watch('state', () => {
+                this.instance.editor.setContent({html: this.state});
             });
         },
         destroy() {

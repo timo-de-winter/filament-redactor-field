@@ -10,7 +10,7 @@
         <textarea
             wire:model.live="{{ $getStatePath() }}"
             aria-label="{{ $field->getName() }}"
-            x-data="redactorEditor({
+            x-data="redactorEditor($wire.{{ $applyStateBindingModifiers("\$entangle('{$getStatePath()}')") }}, {
                 updateUsing: (newState) => {
                     state = newState;
                 },
