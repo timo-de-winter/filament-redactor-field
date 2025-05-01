@@ -47,12 +47,14 @@ document.addEventListener('alpine:init', () => {
             });
 
             this.$watch('state', () => {
-                this.instance.editor.setContent({html: this.state});
+                if (this.state !== this.instance.editor.getContent()) {
+                    this.instance.editor.setContent({html: this.state});
+                }
             });
         },
         destroy() {
-            this.instance.destroy();
             this.classWatcher.destroy();
+            this.instance.destroy();
         }
     }));
 });
