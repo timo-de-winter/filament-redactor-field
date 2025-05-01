@@ -2,7 +2,4 @@
 
 namespace TimoDeWinter\FilamentRedactorField\Concerns;
 
-trait CanUploadImages
-{
-
-}
+trait CanUploadImages {}
