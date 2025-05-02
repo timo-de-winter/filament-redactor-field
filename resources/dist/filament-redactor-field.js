@@ -48,7 +48,7 @@ document.addEventListener('alpine:init', () => {
 
             this.$watch('state', () => {
                 if (this.state !== this.instance.editor.getContent()) {
-                    this.instance.editor.setContent({html: this.state});
+                    this.instance.editor.setContent({html: this.state ?? ''});
                 }
             });
         },
