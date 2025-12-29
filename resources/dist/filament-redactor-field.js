@@ -44,6 +44,9 @@ document.addEventListener('alpine:init', () => {
                 plugins: this.params.plugins ?? [],
                 theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light',
                 limiter: this.params.limiter,
+                image: {
+                    upload: this.params.image.upload,
+                }
             });
 
             this.$watch('state', () => {
@@ -54,7 +57,6 @@ document.addEventListener('alpine:init', () => {
         },
         destroy() {
             this.classWatcher.destroy();
-            this.instance.destroy();
         }
     }));
 });

@@ -19,9 +19,15 @@
                 @if(!is_null($maxLength = $getMaxLength()))
                     limiter: {
                         limit: @js($maxLength)
-                    }
+                    },
                 @else
                     limiter: false,
+                @endif
+
+                @if(!is_null($uploadEndpoint = $getUploadEndpoint()))
+                    image: {
+                        upload: @js($uploadEndpoint),
+                    },
                 @endif
             })"
         ></textarea>
