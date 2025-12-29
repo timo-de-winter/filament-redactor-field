@@ -62,7 +62,7 @@ class RedactorEditor extends Field
         return $this->evaluate($this->maxLength);
     }
 
-    public function uploadEndpoint(Closure | string $endpoint): static
+    public function uploadEndpoint(Closure|string $endpoint): static
     {
         $this->uploadEndpoint = $endpoint;
 
