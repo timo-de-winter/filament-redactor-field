@@ -16,6 +16,8 @@ class RedactorEditor extends Field
 
     protected int|Closure|null $maxLength = null;
 
+    protected string|Closure|null $uploadEndpoint = null;
+
     public function getPlugins(): array
     {
         $plugins = $this->evaluate($this->plugins) ?? config('filament-redactor-field.plugins');
@@ -58,5 +60,17 @@ class RedactorEditor extends Field
     public function getMaxLength(): ?int
     {
         return $this->evaluate($this->maxLength);
+    }
+
+    public function uploadEndpoint(Closure | string $endpoint): static
+    {
+        $this->uploadEndpoint = $endpoint;
+
+        return $this;
+    }
+
+    public function getUploadEndpoint(): ?string
+    {
+        return $this->evaluate($this->uploadEndpoint);
     }
 }
