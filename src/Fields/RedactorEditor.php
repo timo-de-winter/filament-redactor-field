@@ -31,7 +31,7 @@ class RedactorEditor extends Field
             ->toArray();
     }
 
-    public function plugins(array $plugins): static
+    public function plugins(array|Closure $plugins): static
     {
         $this->plugins = $plugins;
 

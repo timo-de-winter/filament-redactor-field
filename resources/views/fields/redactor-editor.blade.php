@@ -14,7 +14,7 @@
                 updateUsing: (newState) => {
                     state = newState;
                 },
-                withDarkMode: @js($getWithDarkMode),
+                withDarkMode: @js($getWithDarkMode()),
                 plugins: @js($getPlugins()),
                 @if(!is_null($maxLength = $getMaxLength()))
                     limiter: {
