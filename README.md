@@ -7,6 +7,18 @@
 
 A Filament field for the redactor WYSIWYG editor.
 
+## Compatibility
+
+A single version of this package supports Filament v3, v4 and v5 — there is no separate branch or major version per Filament release.
+
+| Requirement | Supported versions |
+|-------------|--------------------|
+| PHP         | 8.3, 8.4           |
+| Laravel     | 11, 12, 13         |
+| Filament    | v3.3, v4, v5       |
+
+Composer resolves a working combination for you. Note that Filament decides which Laravel versions each of its own majors supports — Filament v4 and v5 require Laravel 11.28 or newer, for example.
+
 ## Installation
 ```bash
 # Install the package using composer
